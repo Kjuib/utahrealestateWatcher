@@ -1,0 +1,36 @@
+body {
+    width: 250px;
+}
+
+.avatar {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.label {
+    margin-top: 5px;
+}
+
+input {
+    width: 100%;
+}
+
+.buttons {
+    text-align: center;
+}
+
+button.save {
+    margin: 15px 5px;
+    padding: 5px 10px;
+    background: #000099;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+}
+
+.avatar img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+

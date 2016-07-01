@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+<head>
+    <title>Listings</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body ng-app="mainApp" ng-controller="mainCtrl">
+
+<div class="listings">
+    <div class="listing" ng-repeat="listing in listings">{{listing}}</div>
+</div>
+
+<script src="../../lib/jquery.js"></script>
+<script src="../../lib/angular.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
