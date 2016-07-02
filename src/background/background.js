@@ -5,7 +5,7 @@ var propertyType = [
 ];
 var currentPropertyType = 0;
 var priceMin = 0;
-var priceMax = 30000;
+var priceMax = 40000;
 var currentPage = 1;
 
 var listings = [];
@@ -46,7 +46,6 @@ var data = {
     selected_listno: null,
     geolocation: null,
     proptype: null,
-    dim_acres1:5,
     opens: null,
     hval: null,
     loc: null,
