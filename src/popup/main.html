@@ -10,7 +10,7 @@
     <div class="listing" ng-repeat="listing in listings | orderBy:'status' | limitTo:20 track by listing.id" ng-class="{new: listing.status != 'old'}" ng-click="view(listing)">
         <div class="status">{{listing.status}}</div>
         <div class="mlsNumber">#{{listing.id}}</div>
-        <div class="price">Price: {{listing.price}}</div>
+        <div class="price">Price: ${{listing.price}}</div>
     </div>
 </div>
 
