@@ -1,9 +1,3 @@
-chrome.browserAction.setIcon({
-    path: {
-        "32": '../../images/icon-new.png'
-    }
-});
-
 var mainApp = angular.module('mainApp', []);
 
 mainApp.config(function($compileProvider) {
@@ -11,11 +5,12 @@ mainApp.config(function($compileProvider) {
 });
 
 mainApp.controller('mainCtrl', function($scope) {
-    $scope.listings = ['taco'];
-    chrome.storage.sync.get('listings', function(listingsData) {
+    $scope.listings = [];
+    chrome.storage.local.get('listings', function(listingsData) {
         if (listingsData.listings) {
             $scope.$apply(function() {
                 $scope.listings = listingsData.listings;
+                $scope.checkStatus();
             });
         }
     });
@@ -24,7 +19,34 @@ mainApp.controller('mainCtrl', function($scope) {
             var storageChange = changes.listings;
             $scope.$apply(function() {
                 $scope.listings = storageChange.newValue;
+                $scope.checkStatus();
             });
         }
     });
+
+    $scope.checkStatus = function() {
+        if (_.find($scope.listings, {status: 'new'}) || _.find($scope.listings, {status: 'new price'})) {
+            chrome.browserAction.setIcon({
+                path: {
+                    "32": '../../images/icon-new.png'
+                }
+            });
+        } else {
+            chrome.browserAction.setIcon({
+                path: {
+                    "32": '../../images/icon.png'
+                }
+            });
+        }
+    };
+
+    $scope.view = function(listing) {
+        listing.status = 'old';
+        chrome.storage.local.set({
+            listings: $scope.listings
+        });
+        chrome.tabs.create({url: 'http://www.utahrealestate.com/' + listing.id});
+
+        $scope.checkStatus();
+    };
 });

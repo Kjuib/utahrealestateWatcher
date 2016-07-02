@@ -2,35 +2,22 @@ body {
     width: 250px;
 }
 
-.avatar {
-    margin-top: 20px;
-    text-align: center;
-}
+.listing {
+    margin-bottom: 10px;
+    padding: 10px;
 
-.label {
-    margin-top: 5px;
-}
-
-input {
-    width: 100%;
-}
-
-.buttons {
-    text-align: center;
-}
-
-button.save {
-    margin: 15px 5px;
-    padding: 5px 10px;
-    background: #000099;
-    color: #fff;
-    border: 0;
+    font-size: 14px;
+    color: rgba(0, 0, 0, .8);
+    background: rgba(0, 0, 0, .1);
+    border-radius: 2px;
     cursor: pointer;
 }
 
-.avatar img {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
+.listing.new {
+    color: rgba(255, 255, 255, .8);
+    background: rgba(21, 75, 29, .8);
 }
 
+.status {
+    float: right;
+}

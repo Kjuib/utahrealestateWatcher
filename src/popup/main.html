@@ -7,9 +7,14 @@
 <body ng-app="mainApp" ng-controller="mainCtrl">
 
 <div class="listings">
-    <div class="listing" ng-repeat="listing in listings">{{listing}}</div>
+    <div class="listing" ng-repeat="listing in listings | orderBy:'status' | limitTo:20 track by listing.id" ng-class="{new: listing.status != 'old'}" ng-click="view(listing)">
+        <div class="status">{{listing.status}}</div>
+        <div class="mlsNumber">#{{listing.id}}</div>
+        <div class="price">Price: {{listing.price}}</div>
+    </div>
 </div>
 
+<script src="../../lib/lodash.js"></script>
 <script src="../../lib/jquery.js"></script>
 <script src="../../lib/angular.js"></script>
 <script src="main.js"></script>
