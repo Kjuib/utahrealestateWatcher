@@ -5,7 +5,13 @@
     <link href="main.css" rel="stylesheet">
 </head>
 <body ng-app="mainApp" ng-controller="mainCtrl">
+<div class="toolbar">
+    <button class="settingsButton" ng-click="showSettings = !showSettings" title="Settings">S</button>
 
+    <div class="optionPanel settingsPanel" ng-show="showSettings">
+        <button ng-click="markAllAsOld()" title="Mark all listings as old">Mark All</button>
+    </div>
+</div>
 <div class="listings">
     <div class="listing" ng-repeat="listing in listings | orderBy:'status' | limitTo:20 track by listing.id" ng-class="{new: listing.status != 'old'}" ng-click="view(listing)">
         <div class="status">{{listing.status}}</div>

@@ -5,6 +5,8 @@ mainApp.config(function($compileProvider) {
 });
 
 mainApp.controller('mainCtrl', function($scope) {
+    $scope.showSettings = false;
+
     $scope.listings = [];
     chrome.storage.local.get('listings', function(listingsData) {
         if (listingsData.listings) {
@@ -49,4 +51,17 @@ mainApp.controller('mainCtrl', function($scope) {
 
         $scope.checkStatus();
     };
+
+    $scope.markAllAsOld = function() {
+        _.forEach($scope.listings, function(listing) {
+            listing.status = 'old';
+        });
+
+        chrome.storage.local.set({
+            listings: $scope.listings
+        });
+        $scope.checkStatus();
+
+        $scope.showSettings = false;
+    }
 });

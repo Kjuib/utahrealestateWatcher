@@ -21,3 +21,21 @@ body {
 .status {
     float: right;
 }
+
+.toolbar {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.toolbar button {
+    cursor: pointer;
+}
+
+.optionPanel {
+    position: absolute;
+    top: calc(100% + 2px);
+    padding: 10px;
+
+    background: rgba(200, 200, 200, 0.8);
+    border: rgba(0, 0, 0, .8);
+}
